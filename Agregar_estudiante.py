@@ -9,7 +9,7 @@ def pedir_datos_estudiante(df, archivo,materias):
                 identificacion = int(identificacion)
                 #leemos el data frame
                 df = pd.read_csv(archivo)
-                columna_identificacion = df["Identificacion"]
+                columna_identificacion = df['Identificacion']
                 #condicional para comprobar que no hayan identificaciones repetidas
                 if identificacion in columna_identificacion.values:
                     print("La identificación ya existe.")

@@ -3,14 +3,14 @@ import Agregar_estudiante
 import editar_estudiante 
 import eliminar_estudiante
 import listar_estudiantes
-import Graficas
+
 
 def Menu():
     #llamamos la funcion de crear csv y retornamos los valores necesarios para manipular los datos
     df,archivo,materias=crearCSV()
     #menu de opciones para gregar estudiantes
     while True:
-        principal_opcion=input("DIGITE UNA OPCION\n1.Agregar estudiante\n2.Editar Estudiante\n3.Eliminar Estudiante\n4.Listar Estudiante\n5.Graficos y Estadisticas\nOPCION: ")
+        principal_opcion=input("DIGITE UNA OPCION\n1.Agregar estudiante\n2.Editar Estudiante\n3.Eliminar Estudiante\n4.Listar Estudiante\n5.SALIR\nOPCION: ")
         if int(principal_opcion)==1:
             while True:
                 opcion=input("1.agregar Dinamicamente\n2.Agregar Grupo definido\n3.Salir\nDigite una opcion: ")
@@ -30,6 +30,8 @@ def Menu():
                         #llamado a la funcion para agregar nuevo estudiantes al archivo
                         Agregar_estudiante.pedir_datos_estudiante(df,archivo, materias)
                     break
+                else:
+                    break
         elif int(principal_opcion)==2:
             #Llamado a la funcion para editar estudiante
             editar_estudiante.editar_estudiante(df,archivo, materias)
@@ -37,7 +39,12 @@ def Menu():
             eliminar_estudiante.Eliminar_estudiante(df,archivo)
         elif int(principal_opcion)==4:
             listar_estudiantes.Listar_estudiantes(df,archivo)
-        elif int(principal_opcion)==4:
-            Graficas.Graficas(df,archivo)
+        elif int(principal_opcion)==5:
+            break
+        else:
+            break
 
-Menu()
+
+if __name__ == "__main__":
+    Menu()
+
